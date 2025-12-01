@@ -9,14 +9,14 @@ export class AgentStack extends cdk.Stack {
 
     // ローカルのDockerイメージをビルド
     const agentRuntimeArtifact = agentcore.AgentRuntimeArtifact.fromAsset(
-      path.join(__dirname, "../agent"),
+      path.join(__dirname, "../../agent"),
     );
 
     // AgentCore Runtime (L2 Construct)
-    const runtime = new agentcore.Runtime(this, "StrandsAgentRuntime", {
-      runtimeName: "simpleStrandsAgent",
+    const runtime = new agentcore.Runtime(this, "AgentRuntime", {
+      runtimeName: "LangChainAgent",
       agentRuntimeArtifact: agentRuntimeArtifact,
-      description: "Simple Strands Agent with weather tool",
+      description: "LangChain Agent with tools",
     });
 
     // 出力
