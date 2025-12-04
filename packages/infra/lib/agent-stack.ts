@@ -29,6 +29,12 @@ export class AgentStack extends cdk.Stack {
         userPool.userPoolId,
         userPoolClient.userPoolClientId,
       ),
+      environmentVariables: {
+        // TODO: Runtime Environment Variables を 設定する
+        ANTHROPIC_API_KEY: "",
+        CLAUDE_MODEL: "",
+        NODE_ENV: "",
+      },
     });
   }
 }
