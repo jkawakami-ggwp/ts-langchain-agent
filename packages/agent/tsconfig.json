@@ -3,7 +3,7 @@
     "target": "ES2022",
     "module": "NodeNext",
     "lib": ["ES2022"],
-    "outDir": "agent/dist",
+    "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
@@ -29,8 +29,8 @@
     "src/**/*"
   ],
   "exclude": [
-    "agent/node_modules",
-    "agent/dist",
+    "node_modules",
+    "dist",
     "**/*.test.ts",
     "**/*.spec.ts"
   ]

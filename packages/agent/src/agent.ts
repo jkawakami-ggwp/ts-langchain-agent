@@ -49,6 +49,8 @@ export class Agent {
       tools: this.tools,
     });
 
+    console.log('[Agent] invoke request:', { model: this.model, message });
+
     const response = await agent.invoke({
       messages: [new SystemMessage(this.systemMessage), new HumanMessage(message)],
     });
@@ -57,6 +59,11 @@ export class Agent {
     const lastAiMessage = [...response.messages]
       .reverse()
       .find((msg) => msg.constructor.name === 'AIMessage') as AIMessage | undefined;
+
+    console.log('[Agent] invoke response:', {
+      content: lastAiMessage?.content ?? '',
+      totalMessages: response.messages.length,
+    });
 
     return {
       content: (lastAiMessage?.content as string) || '',
